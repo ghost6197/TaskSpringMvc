@@ -15,9 +15,9 @@ public interface BookMapper {
     //@Mapping(source = "author", target = "author.name")
     Book toBook(BookRequest bookRequest);
 
-    @Mapping(source = "author", target = "authorResponse")
+    @Mapping(source = "author.name", target = "authorName")
     BookResponse toBookResponse(Book book);
 
-    @Mapping(source = "author", target = "authorResponse")
+    @Mapping(source = "author.name", target = "authorName")
     List<BookResponse> toBookResponseSet(List<Book> books);
 }

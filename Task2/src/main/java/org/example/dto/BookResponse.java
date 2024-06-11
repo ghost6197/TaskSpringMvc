@@ -12,5 +12,5 @@ public class BookResponse {
 
     Long id;
     String title;
-    AuthorResponse authorResponse;
+    String authorName;
 }

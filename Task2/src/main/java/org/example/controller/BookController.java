@@ -31,24 +31,24 @@ public class BookController {
     @PostMapping
     public BookResponse post(@Valid @RequestBody BookRequest bookRequest) {
         Book book = bookMapper.toBook(bookRequest);
-        Author author=authorService.search(bookRequest.getAuthorName());
+        Author author = authorService.search(bookRequest.getAuthorName());
         book.setAuthor(author);
-        book=bookService.post(book);
+        book = bookService.post(book);
         return bookMapper.toBookResponse(book);
     }
 
     @Operation(summary = "обновление")
     @PutMapping(value = "/{id}")
-    public BookResponse put(@Valid @RequestBody BookRequest bookRequest,@PathVariable Long id) {
+    public BookResponse put(@Valid @RequestBody BookRequest bookRequest, @PathVariable Long id) {
         Book book = bookMapper.toBook(bookRequest);
-        book=bookService.put(book,id);
+        book = bookService.put(book, id);
         return bookMapper.toBookResponse(book);
     }
 
     @Operation(summary = "чтение")
     @GetMapping(value = "/{id}")
     public BookResponse get(@PathVariable Long id) {
-        Book book=bookService.get(id);
+        Book book = bookService.get(id);
         return bookMapper.toBookResponse(book);
     }
 
@@ -60,10 +60,8 @@ public class BookController {
 
     @Operation(summary = "чтение всех книг")
     @GetMapping
-    public List<BookResponse> getAll(@RequestParam(name = "from", defaultValue = "0") int from,
-                               @RequestParam(name = "size", defaultValue = "10") int size) {
-        Pageable pageable = PageRequest.of(from, size);
-        List<Book> bookSet=bookService.getAll(pageable);
+    public List<BookResponse> getAll(Pageable pageable) {
+        List<Book> bookSet = bookService.getAll(pageable);
         return bookMapper.toBookResponseSet(bookSet);
     }
 }
