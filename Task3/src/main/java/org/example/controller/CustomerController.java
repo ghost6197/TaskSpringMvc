@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import org.example.dto.AuthorRequest;
-import org.example.dto.AuthorResponse;
 import org.example.exceptions.BadRequestException;
 import org.example.model.Customer;
 import org.example.service.CustomerService;
