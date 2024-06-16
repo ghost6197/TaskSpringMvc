@@ -14,6 +14,9 @@ import java.util.List;
 public class UserResponse {
 
     @JsonView(Views.UserSummary.class)
+    Long userId;
+
+    @JsonView(Views.UserSummary.class)
     String firstName;
 
     @JsonView(Views.UserSummary.class)

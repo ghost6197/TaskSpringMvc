@@ -56,10 +56,10 @@ public class UserController {
         userService.delete(id);
     }
 
-    @Operation(summary = "чтение вскех пользователей")
+    @Operation(summary = "чтение всех пользователей")
     @GetMapping
     @JsonView(Views.UserSummary.class)
-    public List<UserResponse> getall() {
+    public List<UserResponse> getAll() {
         List<User> users = userService.getAll();
         return userMapper.toUserResponseList(users);
     }

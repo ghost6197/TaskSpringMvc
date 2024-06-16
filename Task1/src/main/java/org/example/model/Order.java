@@ -21,7 +21,6 @@ public class Order {
     Long orderId;
 
     @Schema(description = "ссылка на объект User")
-    // @Column(name = "customer")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
     User user;
